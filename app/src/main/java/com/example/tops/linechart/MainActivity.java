@@ -19,7 +19,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    LineChart chart, charttwo,chartMain;
+    LineChart chart, charttwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         charttwo = (LineChart) findViewById(R.id.chartTwo);
         chart = (LineChart) findViewById(R.id.chart);
-        chartMain=(LineChart) findViewById(R.id.mainChart);
         loadFirstChart();
         loadSecondChar();
     }
@@ -94,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
         //on Scoll manage
 
-        chartMain.setOnChartGestureListener(new CoupleChartGestureListener(
-                chartMain, new Chart[]{chart,charttwo}));
+        chart.setOnChartGestureListener(new CoupleChartGestureListener(
+                chart, new Chart[]{chart,charttwo}));
 
         chart.invalidate();
     }
@@ -162,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
         //on Scoll manage
 
-        chartMain.setOnChartGestureListener(new CoupleChartGestureListener(
+        charttwo.setOnChartGestureListener(new CoupleChartGestureListener(
                 charttwo, new Chart[]{chart,charttwo}));
     }
 }
