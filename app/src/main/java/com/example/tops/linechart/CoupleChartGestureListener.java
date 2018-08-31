@@ -1,6 +1,7 @@
 package com.example.tops.linechart;
 
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import com.github.mikephil.charting.listener.OnChartGestureListener;
 public class CoupleChartGestureListener implements OnChartGestureListener {
 
 
+    private static final String TAG = "chart";
     private Chart srcChart;
     private Chart[] dstCharts;
 
@@ -23,43 +25,45 @@ public class CoupleChartGestureListener implements OnChartGestureListener {
 
     @Override
     public void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
-
+        Log.d(TAG, "onChartGestureStart ");
+        syncCharts(srcChart,dstCharts);
     }
 
     @Override
     public void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture) {
+        Log.d(TAG, "onChartGestureEnd "); syncCharts(srcChart,dstCharts);
 
     }
 
     @Override
     public void onChartLongPressed(MotionEvent me) {
-
+        Log.d(TAG, "onChartLongPressed ");
     }
 
     @Override
     public void onChartDoubleTapped(MotionEvent me) {
-
+        Log.d(TAG, "onChartDoubleTapped ");
     }
 
     @Override
     public void onChartSingleTapped(MotionEvent me) {
-
+        Log.d(TAG, "onChartSingleTapped ");
     }
 
     @Override
     public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
-
+        Log.d(TAG, "onChartFling");
     }
 
     @Override
     public void onChartScale(MotionEvent me, float scaleX, float scaleY) {
-        //Log.d(TAG, "onChartScale " + scaleX + "/" + scaleY + " X=" + me.getX() + "Y=" + me.getY());
+        Log.d(TAG, "onChartScale");
         syncCharts(srcChart,dstCharts);
     }
 
     @Override
     public void onChartTranslate(MotionEvent me, float dX, float dY) {
-        //Log.d(TAG, "onChartTranslate " + dX + "/" + dY + " X=" + me.getX() + "Y=" + me.getY());
+        Log.d(TAG, "onChartTranslate");
         syncCharts(srcChart,dstCharts);
     }
 
